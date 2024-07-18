@@ -8,7 +8,9 @@ async function getData() {
         }
     });
 
-    return response.json()
+    if (!response.ok) throw new Error('Unable to fetch posts');
+
+    return response.json();
 }
 
 export const metadata: Metadata = {
